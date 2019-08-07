@@ -67,6 +67,10 @@ class Blockchain:
                 print('MISMATCH')
                 print('Hash of block at index '+str(block_index) +': '+ self.get_last_block().getHash())
                 print('Prev hash attrib in current block: '+ block.previous_hash)
+            elif not block.getHash().startswith('0'*self.difficulty):
+                valid_block = False
+                print('INVALID DIFFICULTY')
+                print('Block PoW not hard enough, requires '+str(self.difficulty)+' 0 prefix')
             #block_index += 1
         #check the block fits the chain protocols, if it does not it is rejected.
         #hash must match difficulty (to define: dif 1 = 5x0 hash prefix)
