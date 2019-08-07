@@ -29,9 +29,10 @@ class Block:
         print('Block Hash: '+self.getHash())
         print('Nonce: '+str(self.nonce))
         print('Created: '+ str(datetime.fromtimestamp(self.timeStamp)))
-        print('Prev_hash: '+self.previous_hash)
+        print('Prev_hash: '+str(self.previous_hash))
         print('Transactions ('+str(len(self.transactions))+'):')
         self.printTransactions()
+        print('-END OF BLOCK-')
 
     def printTransactions(self):
         c = 1
@@ -40,7 +41,9 @@ class Block:
             tx.printDetails()
             c += 1
 
-    def __init__(self,txlist=[],prev_hash=''):
+    def __init__(self,txlist=None,prev_hash=''):
+        self.transactions = []
+        txlist = txlist or []
         self.txIndex = 0
         self.previous_hash = prev_hash
         for tx in txlist:
