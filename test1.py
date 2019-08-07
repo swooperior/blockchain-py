@@ -5,7 +5,7 @@ from block import Block
 
 
 evilCoin = Blockchain('EC',3,10)
-
+block = Block(None,evilCoin.get_last_block().getHash())
 while True:
     print('Welcome to the blockchain.')
     print('1 - Create a transaction')
@@ -16,7 +16,7 @@ while True:
 
     usr_in = input('-> ')
 
-    block = Block(None,evilCoin.get_last_block().getHash())
+    
     if usr_in == '1':
         print('Creating a new transaction Record.')
         sender = input('Sending Address: ')
@@ -27,6 +27,7 @@ while True:
         print('Transaction '+ tx.signature +' added to block.') 
     elif usr_in == '2':
         evilCoin.mine(block)
+        block = Block(None,evilCoin.get_last_block().getHash())
     elif usr_in == '3':
         evilCoin.printChain()
     elif usr_in == '4':
