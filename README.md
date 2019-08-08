@@ -1,8 +1,8 @@
-#Blockchain-Py
-#Project Aim
+# Blockchain-Py
+## Project Aim
 Learn more about python and blockchain.
 
-#Recent Fixes
+## Recent Fixes
 
 Found that my problems with transactions lied in fiddling with the Transactions class directly rather than instantiating it to a variable first.
 
